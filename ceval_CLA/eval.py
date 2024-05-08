@@ -15,7 +15,7 @@ def main(args, evaluator,take):
     assert os.path.exists("subject_mapping.json"), "subject_mapping.json not found!"
     with open("subject_mapping.json") as f:
         subject_mapping = json.load(f)
-    filenames = os.listdir("/workspace/yuyang/data/ceval-exam/val")
+    filenames = os.listdir("/workspace/data/ceval-exam/val")
     subject_list = [val_file.replace("_val.csv","") for val_file in filenames]
     accuracy, summary = {}, {}
 
@@ -28,9 +28,9 @@ def main(args, evaluator,take):
     all_answers = {}
     for index,subject_name in enumerate(subject_list):
         print(f"{index/len(subject_list)} Inference starts at {run_date} on {args.model_path} with subject of {subject_name}!")
-        val_file_path=os.path.join('/workspace/yuyang/data/ceval-exam/val',f'{subject_name}_val.csv')
-        dev_file_path=os.path.join('/workspace/yuyang/data/ceval-exam/dev',f'{subject_name}_dev.csv')
-        test_file_path=os.path.join('/workspace/yuyang/data/ceval-exam/test',f'{subject_name}_test.csv')
+        val_file_path=os.path.join('/workspace/data/ceval-exam/val',f'{subject_name}_val.csv')
+        dev_file_path=os.path.join('/workspace/data/ceval-exam/dev',f'{subject_name}_dev.csv')
+        test_file_path=os.path.join('/workspace/data/ceval-exam/test',f'{subject_name}_test.csv')
 
         val_df=pd.read_csv(val_file_path) if args.do_test is False else pd.read_csv(test_file_path)
         dev_df=pd.read_csv(dev_file_path) if args.few_shot else None
