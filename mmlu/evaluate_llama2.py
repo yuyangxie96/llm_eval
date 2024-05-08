@@ -221,13 +221,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ntrain", "-k", type=int, default=5)
     parser.add_argument("--gpu", type = str, default = "7")
-    parser.add_argument("--data_dir", "-d", type=str, default="/workspace/yuyang/data/mmlu_data")
+    parser.add_argument("--data_dir", "-d", type=str, default="/workspace/data/mmlu_data")
     parser.add_argument("--save_dir", "-s", type=str, default="./output")
     parser.add_argument(
         "--model",
         "-m",
         type=str,
-        default="/workspace/yuyang/Llama-2-7b-hf",
+        default="/workspace/Llama-2-7b-hf",
     )
     args = parser.parse_args()
     
